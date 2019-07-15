@@ -1,7 +1,9 @@
-import './styles.css';
-import { add, PI } from './utils';
-console.log('Ready to Party');
+const nameInput = document.getElementById('name') as HTMLInputElement;
+const doItButton = document.getElementById('doIt') as HTMLInputElement;
+const messageOutput = document.getElementById('message');
 
-console.log(add(10, 18));
+doItButton.addEventListener('click', function () {
+    const enteredName = nameInput.value;
+    messageOutput.innerText = enteredName.toUpperCase();
+})
 
-console.log(PI);
