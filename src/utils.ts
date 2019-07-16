@@ -1,9 +1,8 @@
-
-export function add(a, b) {
-    return a + b;
+//exported things must be imported
+export function isEven(n: number): boolean {
+    return n % 2 === 0;
 }
 
-
-export const PI = 3.1415;
-
-// window["add"] = add;
+export function formatName(first: string, last: string): string {
+    return `${last}, ${first}`;
+}
