@@ -139,9 +139,112 @@ describe('functions and objects', () => {
                 expect(newState).toBe(2);
             });
 
-
-
-
         });
+
+        describe(' objects', () => {
+            describe('anonymous objects', () => {
+                it('making one', () => {
+
+
+                    const actor = {
+                        name: {
+                            firstName: 'harrison',
+                            lastName: 'ford'
+                        },
+                        roles: [
+                            'han solo',
+                            'decker'
+                        ]
+                    };
+
+                    expect(actor.name.firstName).toBe('harrison');
+                    expect(actor.roles.some(n => n === 'decker')).toBe(true);
+                });
+
+
+                interface Loggable { message: string }
+                function logIt(thingy: Loggable) {
+                    console.log(thingy.message);
+                }
+
+                // logIt('tacos');
+                const phoneCall = {
+                    from: 'Stacey',
+                    message: 'Get bread on the way home'
+                }
+
+                const email = {
+                    to: 'Joe',
+                    message: 'Call your mom'
+                }
+
+            });
+        });
+
+        interface Person { first: string; last: string, getInfo: () => string };
+        // interface Person { first: string; last: string, mi?: string };
+        interface PersonWithMiddleInitial extends Person {
+            mi: string;
+        }
+        const cf: PersonWithMiddleInitial = {
+            first: 'Carrie',
+            last: 'Fisher',
+            mi: 'A',
+            getInfo: function () {
+                return `Person ${this.first} ${this.last};`
+            }
+        }
+
+        const mh: Person = {
+            first: 'Mark',
+            last: 'Hamill',
+            getInfo: function () {
+                return `Person ${this.first} ${this.last};`
+            }
+        }
+
+        /*
+                class Actor {
+        
+                    private mAge: number = 0;
+        
+                    constructor(public firstName: string, public lastName: string) { }
+        
+                    getInfo() {
+                        return `${this.lastName}, ${this.firstName}`;
+                    }
+        
+                    get age(): number {
+                        return this.mAge;
+                    }
+        
+                    set age(newValue: number) {
+                        this.mAge = newValue;
+                    }
+                }
+        
+                const ralph = new Actor('Ralph', 'Maccio');
+        
+                expect(ralph.firstName).toBe('Ralph');
+                expect(ralph.lastName).toBe('Maccio');
+                expect(ralph.getInfo()).toBe('Maccio, Ralph');
+                ralph.age = 39;
+                expect(ralph.age).toBe(39);
+        
+                class Employee extends Actor {
+                    constructor(first: string, last: string, public salary: number) {
+                        super(first, last);
+                    }
+                }
+        
+                let peter = new Employee('Peter', 'Lewis', 50_000_000);
+        
+        
+                expect(peter.salary).toBe(50_000_000);  */
+
+
+
+
+
     });
 });
